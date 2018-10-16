@@ -1,0 +1,26 @@
+
+<h2><%= @recipe.name %></h2>
+
+<br>
+<p><%= @recipe.description %></p>
+
+<%=image_tag @recipe.image, alt: @recipe.name, class: 'eachrecipeimge'%>
+
+</br>
+
+<p>Rating: <%= rating_for @recipe, 'recipe', star: 5, disable_after_rate: true, half_show: true %>
+
+
+
+<p>Name: <%= @recipe.name %>
+<p>Description: <%= @recipe.description %>
+<p>Serves: <%= @recipe.serves %>
+<p>PREP: <%= @recipe.prep %>
+<p>Cook: <%= @recipe.cook %>
+<p>Ingredients: <%= @recipe.ingredients %>
+<p>Instruction: <%= @recipe.instruction %>
+
+</br>
+<%= link_to 'Edit This Recipe', edit_recipe_path(@recipe) %>
+|
+<%= link_to 'Delete This Recipe', recipe_path(@recipe), method: 'delete'%>

@@ -1,0 +1,17 @@
+<h1>Login</h1>
+
+<% if flash[:error] %>
+<strong><%= flash[:error] %></strong> <!-- # if they get a password wrong  -->
+<br>
+<% end %>
+
+<%= form_tag login_path do %>
+
+<%= label_tag :email %>
+<%= email_field_tag :email, nil %>
+</br>
+<%= label_tag :password %>
+<%= password_field_tag :password, nil %>
+</br>
+<%= submit_tag 'Login' %>
+<% end %>

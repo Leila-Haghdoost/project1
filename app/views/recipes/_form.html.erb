@@ -1,0 +1,39 @@
+<%= form_for @recipe do |f| %>
+<fieldset>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+</fieldset>
+<fieldset>
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+</fieldset>
+<fieldset>
+  <%= f.label :serves %>
+  <%= f.text_field :serves %>
+</fieldset>
+<fieldset>
+  <%= f.label :prep %>
+  <%= f.text_field :prep %>
+</fieldset>
+<fieldset>
+  <%= f.label :cook %>
+  <%= f.text_field :cook %>
+</fieldset>
+<fieldset>
+  <%= f.label :ingredients %>
+  <%= f.text_field :ingredients %>
+</fieldset>
+<fieldset>
+  <%= f.label :instruction %>
+  <%= f.text_field :instruction %>
+</fieldset>
+<fieldset>
+  <%= f.label :image %>
+  <%= f.text_field :image %>
+</fieldset>
+<fieldset>
+  <%= f.label :cuisine_id, 'Cuisine' %>
+  <%= f.collection_select :cuisine_id, Cuisine.all, :id, :name, prompt: 'Please choose the cuisine'  %>
+</fieldset>
+<%= f.submit %>
+<% end %>

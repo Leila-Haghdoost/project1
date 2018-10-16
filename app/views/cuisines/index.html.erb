@@ -1,0 +1,15 @@
+<h1>Cuisines</h1>
+
+
+<div>
+<% @cuisines.each do |cuisine| %>
+  <a href="<%= cuisine_path(cuisine.id) %>">
+  <%= image_tag cuisine.image, size:"200x200", class:"cuisineGride"%>
+  <br>
+  <%= cuisine.name %>
+
+   </a>
+  <br>
+<% end %>
+</div>
+<br>

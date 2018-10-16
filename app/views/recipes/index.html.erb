@@ -1,0 +1,8 @@
+<h2> Recipes: </h2>
+
+
+  <%  @recipes.each do |recipe| %>
+  <%= image_tag recipe.image, size:"100x100", class:"recipeGride"%>
+  <%= link_to recipe.name, recipe_path(recipe.id)%>
+  <br>
+  <% end %>
