@@ -10,21 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_15_223210) do
+ActiveRecord::Schema.define(version: 2018_10_16_002103) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "average_caches", force: :cascade do |t|
-    t.bigint "rater_id"
-    t.string "rateable_type"
-    t.bigint "rateable_id"
-    t.float "avg", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["rateable_type", "rateable_id"], name: "index_average_caches_on_rateable_type_and_rateable_id"
-    t.index ["rater_id"], name: "index_average_caches_on_rater_id"
-  end
 
   create_table "cuisines", force: :cascade do |t|
     t.text "name"
@@ -45,27 +34,6 @@ ActiveRecord::Schema.define(version: 2018_10_15_223210) do
     t.integer "recipe_id"
   end
 
-  create_table "overall_averages", force: :cascade do |t|
-    t.string "rateable_type"
-    t.bigint "rateable_id"
-    t.float "overall_avg", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["rateable_type", "rateable_id"], name: "index_overall_averages_on_rateable_type_and_rateable_id"
-  end
-
-  create_table "rating_caches", force: :cascade do |t|
-    t.string "cacheable_type"
-    t.bigint "cacheable_id"
-    t.float "avg", null: false
-    t.integer "qty", null: false
-    t.string "dimension"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["cacheable_id", "cacheable_type"], name: "index_rating_caches_on_cacheable_id_and_cacheable_type"
-    t.index ["cacheable_type", "cacheable_id"], name: "index_rating_caches_on_cacheable_type_and_cacheable_id"
-  end
-
   create_table "recipes", force: :cascade do |t|
     t.text "name"
     t.text "description"
@@ -79,6 +47,15 @@ ActiveRecord::Schema.define(version: 2018_10_15_223210) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.float "rating"
+    t.text "comment"
+    t.integer "user_id"
+    t.integer "recipe_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

@@ -125,6 +125,13 @@ f2 = Favlist.create  name: 'Ben - My Favourite Recipes'
 puts "Created #{Favlist.all.length} favlists."
 
 
+Review.destroy_all
+review1 = Review.create rating:'10', comment:'Everything about cooking is LOVE.'
+review2 = Review.create rating:'7', comment:'It’s fun to prepare food for family members.'
+review3 = Review.create rating:'5', comment:'I have made a lot of butter creams, and this one is by far the best.  Great texture, great taste.  Thank you! '
+
+
+
 u1.recipes << r1 << r2 << r8
 u2.recipes << r3 << r4 << r5
 u3.recipes << r15 << r10 << r16  << r13 << r14
@@ -134,3 +141,12 @@ u2.favlists << f2
 
 f1.recipes << r1 << r2 << r8
 f2.recipes << r2 << r8
+
+
+r1.reviews << review1
+r1.reviews << review1
+r2.reviews << review3
+
+u1.reviews << review3
+u2.reviews << review2
+u3.reviews << review2 

@@ -59,4 +59,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'pry-rails'
 gem 'pry-byebug'
 gem 'jquery-rails'
-gem 'ratyrate'
+# gem 'ratyrate'
+# gem 'ratyrate', :github => 'wazery/ratyrate'
