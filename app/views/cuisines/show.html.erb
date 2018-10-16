@@ -1,6 +1,6 @@
 <h2><%= @cuisine.name %> recipes</h2>
 
-<%= image_tag @cuisine.image, alt: @cuisine.name, class: 'cuisine' %>
+<%= cl_image_tag @cuisine.image, alt: @cuisine.name, class: 'cuisine' %>
 
 <br>
 <%= link_to 'Edit This Cuisine', edit_cuisine_path(@cuisine) %>
@@ -10,7 +10,7 @@
 <h4>Recipes:</h4>
 
 <% @cuisine.recipes.each do |recipe| %>
-<%= image_tag recipe.image, size:"100x100", class:"recipeGride"%>
+<%= cl_image_tag recipe.image, size:"100x100", class:"recipeGride"%>
 
 <%= link_to recipe.name, recipe_path(recipe.id)%>
 <br>

@@ -5,10 +5,18 @@ class RecipesController < ApplicationController
   end
 
   def create
-  Recipe.create recipe_params
-  redirect_to( recipes_path)
-  end
+  @recipe = Recipe.create recipe_params
+  # Cloudinary upload happens between .new and .save
 
+  #was a file actually uploaded?
+  if params[:file].present?
+    response = Cloudinary::Uploader.upload params[:file]
+    @recipe.image = response["public_id"]
+
+    @recipe.save
+  end
+  redirect_to( cuisine_path(@recipe.cuisine) )
+end
 
   def index
     @recipes = Recipe.all
@@ -31,6 +39,7 @@ class RecipesController < ApplicationController
 
   def destroy
   @recipe = Recipe.find params[:id]
+  # @recipe = Review.find params[:id]
   @recipe.destroy
   redirect_to (recipes_path)
   end

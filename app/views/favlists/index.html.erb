@@ -4,7 +4,7 @@
 <%  @current_user.favlists.each do |favlist| %>
   <%= favlist.name %><br>
   <% favlist.recipes.each do |recipe| %>
-    <%= image_tag recipe.image, size:"100x100", class:"recipeGride"%>
+    <%= cl_image_tag recipe.image, size:"100x100", class:"recipeGride"%>
     <%= link_to recipe.name, recipe_path(recipe.id)%>
     <br>
   <% end %>

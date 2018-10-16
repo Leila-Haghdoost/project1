@@ -22,5 +22,6 @@ Rails.application.routes.draw do
 
 
   resources :favlists
+  resources :reviews
 
  end

@@ -4,11 +4,13 @@
 <br>
 <p><%= @recipe.description %></p>
 
-<%=image_tag @recipe.image, alt: @recipe.name, class: 'eachrecipeimge'%>
+<%=cl_image_tag  @recipe.image, alt: @recipe.name, class: 'eachrecipeimge'%>
 
 </br>
+<%= link_to 'Edit This Recipe', edit_recipe_path(@recipe) %>
+|
+<%= link_to 'Delete This Recipe', recipe_path(@recipe), method: 'delete'%>
 
-<p>Rating: <%= rating_for @recipe, 'recipe', star: 5, disable_after_rate: true, half_show: true %>
 
 
 
@@ -21,6 +23,16 @@
 <p>Instruction: <%= @recipe.instruction %>
 
 </br>
-<%= link_to 'Edit This Recipe', edit_recipe_path(@recipe) %>
-|
-<%= link_to 'Delete This Recipe', recipe_path(@recipe), method: 'delete'%>
+
+
+<h4>Reviews:</h4>
+
+<% @recipe.reviews.each do |review| %>
+
+<p> <i class="fas fa-thumbs-up"></i></i></i><%= review.rating%></p>
+<p>Comment:<%= link_to review.comment, review_path(review.id)%></p>
+
+<%= link_to 'Add a comment', new_review_path %>
+
+
+<% end %>
