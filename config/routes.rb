@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   # get "/cuisines" => "cuisines#index"
   # get "/cuisines/:id" => "cuisines#show", as: 'cuisine'
-  root to: "cuisins#index"
+  root to: "cuisines#index"
 
 
   resources :cuisines
