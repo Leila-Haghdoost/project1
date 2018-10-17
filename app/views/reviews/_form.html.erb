@@ -1,8 +1,9 @@
 <%= form_for @review do |f| %>
 
+
 <fieldset>
   <%= f.label :rating %>
-  <%= f.text_field :rating %>
+  <%= f.text_field :rating,  value: @recipe.name %>
 </fieldset>
 <fieldset>
   <%= f.label :comment %>

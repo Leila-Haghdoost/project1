@@ -1,4 +1,6 @@
-<h2>Create an Account</h2>
+<div class="createAccount">
+  <h2>Create an Account</h2>
+</div>
 
 <% if flash[:errors].present?  %>
    <strong>Please correct the following errors:</strong>
@@ -9,24 +11,25 @@
    </ol>
 <% end %>
 
-
-
+<div class="form-group">
   <%= form_for @user do |f| %>
-  <div class="form-group">
+  <span>
     <%= f.label :name %>
     <%= f.text_field :name, class:"form-control" %>
-  </div>
-  <div class="form-group">
+  </span>
+  <span>
   <%= f.label :email %>
   <%= f.text_field :email, class:"form-control", placeholder:"Enter email"%>
-  </div>
-  <div class="form-group">
+</span>
+  <span>
   <%= f.label :password %>
   <%= f.password_field :password, class:"form-control", placeholder:"Password" %>
-  </div>
-  <div class="form-group">
+</span>
+  <span>
   <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation, class:"form-control", placeholder:"Password confirmation"  %>
-</div >
-  <%= f.submit 'Create User', class: "btn btn-primary" %>
+  <%= f.password_field :password_confirmation, id:"exampleDropdownFormPassword2", class:"form-control", placeholder:"Password confirmation"  %>
+</span >
+<br>
+  <%= f.submit 'Create User', class: "btn btn-outline-info" %>
 <% end %>
+</div>

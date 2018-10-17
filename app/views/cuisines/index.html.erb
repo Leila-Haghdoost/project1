@@ -1,15 +1,19 @@
-<h1>Cuisines</h1>
 
 
-<div>
+
+<div class="container">
+
 <% @cuisines.each do |cuisine| %>
+<div class="grid-item">
   <a href="<%= cuisine_path(cuisine.id) %>">
-  <%= cl_image_tag cuisine.image, size:"200x200", class:"cuisineGride"%>
+  <%= cl_image_tag cuisine.image, class:"cuisinImg"%>
   <br>
   <%= cuisine.name %>
 
    </a>
-  <br>
+
+  </div>
 <% end %>
+
 </div>
 <br>

@@ -8,16 +8,24 @@
 
 </br>
 
-  <% if @list.recipes.include? @recipe%>
+<% if @current_user.present? %>
+   <%# Only show the following links if the user is logged in %>
+  <% if @current_user.favourites.include? @recipe %>
     <%= link_to 'Remove from your Favourite list', unfavourite_recipe_path(@recipe.id) %>
   <% else %>
     <%= link_to 'Add to your Favourite list', favourite_recipe_path(@recipe.id) %>
   <% end %>
+  |
+  <% if @current_user == @recipe.user %>
+       <%= link_to 'Edit', edit_recipe_path(@recipe) %>
+       |
+       <%= link_to 'Delete', recipe_path(@recipe),
+               method: 'delete',
+               data: { confirm: 'Are you sure?' } %>
+  <% end %>
 
-|
-<%= link_to 'Edit This Recipe', edit_recipe_path(@recipe), id: "#{@recipe.id}" %>
-|
-<%= link_to 'Delete This Recipe', recipe_path(@recipe), method: 'delete'%>
+
+<% end %>
 
 
 
@@ -40,7 +48,23 @@
 <p> <i class="fas fa-thumbs-up"></i></i></i><%= review.rating%></p>
 <p>Comment:<%= link_to review.comment, review_path(review.id)%></p>
 
-<%= link_to 'Add a review', review_path %>
+<%= link_to 'Add a review', new_review_path %>
 
 
+<% end %>
+
+
+<%= form_for @review do |f| %>
+
+<fieldset>
+  <%= f.label :rating %>
+  <%= f.text_field :rating,  value: @recipe.name %>
+</fieldset>
+<fieldset>
+  <%= f.label :comment %>
+  <%= f.text_field :comment %>
+</fieldset>
+<%= f.hidden_field :recipe_id, value:"#{@recipe.id}" %>
+
+<%= f.submit %>
 <% end %>

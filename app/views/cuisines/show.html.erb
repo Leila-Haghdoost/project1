@@ -1,11 +1,13 @@
-<h2><%= @cuisine.name %> recipes</h2>
+<div class="cuisineShowPage">
 
 <%= cl_image_tag @cuisine.image, alt: @cuisine.name, class: 'cuisine' %>
+<h2 ><%= @cuisine.name %> recipes</h2>
 
 <br>
 <%= link_to 'Edit This Cuisine', edit_cuisine_path(@cuisine) %>
 |
 <%= link_to 'Delete This Cuisine', cuisine_path(@cuisine), method: 'delete'%>
+</div>
 <br>
 <h4>Recipes:</h4>
 

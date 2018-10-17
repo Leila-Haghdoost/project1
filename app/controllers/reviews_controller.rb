@@ -6,7 +6,25 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    @review = Review.create review_params
+    @review = Review.new (review_params)
+
+
+    @review.user = @current_user
+    @review.save
+
+    if @review.persisted?
+      recipe = Recipe.find params[:review][:recipe_id].to_i
+
+
+    # raise "hell"
+    redirect_to( recipe_path(@review.recipe) )
+  else
+    render :new
+  end
+
+
+
+
   end
 
   def index

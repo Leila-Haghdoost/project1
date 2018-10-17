@@ -292,12 +292,12 @@ u3 = User.create name: 'Uness', email: 'uness@ga.co', password: 'chicken'
 puts "Created #{User.all.length} users."
 
 
-
-Favlist.destroy_all
-f1 = Favlist.create  name: 'Leila - My Favourite Recipes'
-f2 = Favlist.create  name: 'Ben - My Favourite Recipes'
-
-puts "Created #{Favlist.all.length} favlists."
+#
+# Favlist.destroy_all
+# f1 = Favlist.create  name: 'Leila - My Favourite Recipes'
+# f2 = Favlist.create  name: 'Ben - My Favourite Recipes'
+#
+# puts "Created #{Favlist.all.length} favlists."
 
 
 Review.destroy_all
@@ -310,12 +310,16 @@ review3 = Review.create rating:'5', comment:'I have made a lot of butter creams,
 u1.recipes << r1 << r2 << r8
 u2.recipes << r3 << r4 << r5
 u3.recipes << r6 << r7 << r9  << r10 << r11
+#
+# u1.favlists << f1
+# u2.favlists << f2
+# f1.recipes << r1 << r2 << r8
+# f2.recipes << r2 << r8
 
-u1.favlists << f1
-u2.favlists << f2
+u1.favourites << r1 << r2 << r3
+u2.favourites << r1 << r2 << r4
+u3.favourites << r1 << r3 << r5 << r6
 
-f1.recipes << r1 << r2 << r8
-f2.recipes << r2 << r8
 
 
 r1.reviews << review1

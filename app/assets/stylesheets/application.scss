@@ -25,3 +25,55 @@
 .icon {
   size: 36px;
 }
+body {
+  background: #204b5e;
+  font-family: 'raileway', sans-serif;
+
+  // justify-content: center;
+}
+.name{
+  padding:50px;
+  font-family: 'Cabin Sketch', cursive;
+  font-size: 50pt;
+  color:#a2d832;
+}
+// nav{
+//   color: white;
+//   width:100%;
+//   padding:20px;
+//   background-color: #ffffff;
+//   margin-top:40px;
+//   text-align:center;
+//
+//   opacity: 0.8;
+// }
+//
+// nav a:link, nav a:visited, p{
+//   color: #204b5e;
+//
+// }
+
+ul.topnav {
+    list-style-type: none;
+    margin-bottom: 30px;
+    padding: 0;
+    overflow: hidden;
+    background-color: #fff;
+    opacity:0.8;
+}
+
+ul.topnav li {float: left;}
+
+ul.topnav li a {
+    display: block;
+    color: #204b5e;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+ul.topnav li a:hover:not(.active) {background-color: #2A95B8;}
+
+ul.topnav li a.active {background-color: yellow;}
+
+ul.topnav li.right {float: right;}

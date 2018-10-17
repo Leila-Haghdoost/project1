@@ -1,15 +1,16 @@
 
 
-
-<%= link_to 'Delete This Review', review_path(@review), method: 'delete'%>
-
-
-<% @recipes.reviews.each do |review| %>
-<p>Rating: <%= review.rating %></p>
-<p>Comment: <%= review.comment %></p>
-
+<h1>Review by <%= @review.user.name %> for <%= @review.restaurant.name %></h1>
+<% if @review.user == @current_user %>
+ <%= link_to 'EDIT', edit_review_path %>
+ <%= link_to 'DELETE', review_path, method: 'delete' %>
 <% end %>
+<div>
+ <div>
+   <p><%= @review.comment %></p>
+ </div>
+ <div>
+   <%= @review.rating %> / 5.0
+ </div>
 
-
-
-</br>
+</div>

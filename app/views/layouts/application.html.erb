@@ -4,9 +4,10 @@
     <title>Project1</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+
     <%= javascript_include_tag 'application' %>
     <%= cloudinary_js_config %>
 
@@ -14,33 +15,30 @@
   </head>
 
   <body>
-    <nav>
-      <%= link_to 'Home', cuisines_path %>
-      |
+<h1 class="name">WORLD CUISINES</h1>
+    <ul class="topnav">
+      <li><%= link_to 'Home', cuisines_path %></li>
+      <!-- | -->
       <% if @current_user.present? %>
 
-      <%= link_to 'Create New Cuisine', new_cuisine_path %>
-      |
-      <%= link_to 'Create New Recipe', new_recipe_path %>
-      |
-      Welcome, <%= @current_user.name %>
-      |
-      <% if @current_user.favlists.present? %>
-        <%= link_to 'Your Favourite List', favlist_path(@current_user.favlists.first.id) %>
-      <% end %>
-        |
-
-        <%= link_to 'Logout', login_path, method: 'delete' %>
-
-        |
+      <li><%= link_to 'Create New Cuisine', new_cuisine_path %></li>
+      <!-- | -->
+      <li><%= link_to 'Create New Recipe', new_recipe_path %></li>
+      <!-- | -->
+      <li>Welcome, <%= @current_user.name %></li>
+      <!-- | -->
+      <li><%= link_to 'Your Favourite List', user_path(@current_user.id) %></li>
+      <!-- | -->
+      <li><%= link_to 'Logout', login_path, method: 'delete' %></li>
+      <!-- | -->
 
       <% else %>
-        <%= link_to 'Login', login_path %>
-        |
-        <%= link_to 'Sign up', new_user_path %>
+        <li><%= link_to 'Login', login_path %></li>
+        <!-- | -->
+        <li><%= link_to 'Sign up', new_user_path %></li>
       <% end %>
 
-    </nav>
+    </ul>
 
 
     <%= yield %>

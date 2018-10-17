@@ -1,2 +1,19 @@
 <h1>Users#show</h1>
 <p>Find me in app/views/users/show.html.erb</p>
+
+<h3>Favourites List</h3>
+
+<% @user.favourites.each do |recipe| %>
+  <%= cl_image_tag recipe.image, size:"100x100", class:"recipeGride"%>
+  <%= link_to recipe.name, recipe_path(recipe.id) %>
+
+  (<%= link_to 'Remove', unfavourite_recipe_path(recipe.id, from: 'list') %>)
+
+
+<!--
+The above link_to will create a link like:
+<a href="/recipes/136/unfavourite?from=list"></a>
+-->
+
+  <br>
+<% end %>
