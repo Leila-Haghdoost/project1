@@ -66,3 +66,4 @@ gem 'bootstrap', '~> 4.1.3'
 # gem 'ratyrate', :github => 'wazery/ratyrate'
 
 gem "font-awesome-rails"
+gem 'rails_12factor', group: :production

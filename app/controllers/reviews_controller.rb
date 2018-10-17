@@ -7,9 +7,6 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.create review_params
-    # redirect_to( cuisine_path(@recipe.cuisine) )
-
-    redirect_to recipe_path
   end
 
   def index
@@ -37,7 +34,7 @@ class ReviewsController < ApplicationController
   private
   # strong params, the doorman for the form fields
   def review_params
-    params.require(:review).permit(:rating, :comment)
+    params.require(:review).permit(:rating, :comment, :recipe_id)
   end
 
 

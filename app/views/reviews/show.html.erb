@@ -4,10 +4,12 @@
 <%= link_to 'Delete This Review', review_path(@review), method: 'delete'%>
 
 
+<% @recipes.reviews.each do |review| %>
+<p>Rating: <%= review.rating %></p>
+<p>Comment: <%= review.comment %></p>
 
+<% end %>
 
-<p>Rating: <%= @review.rating %>
-<p>Comment: <%= @review.comment %>
 
 
 </br>

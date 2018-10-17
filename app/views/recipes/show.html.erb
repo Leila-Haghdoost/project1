@@ -4,7 +4,7 @@
 <br>
 <p><%= @recipe.description %></p>
 
-<%=cl_image_tag  @recipe.image, size:"120x120", alt: @recipe.name, class: 'eachrecipeimge'%>
+<%=cl_image_tag  @recipe.image, size:"300x300", alt: @recipe.name, class: 'eachrecipeimge'%>
 
 </br>
 
@@ -22,13 +22,13 @@
 
 
 
-<p>Name: <%= @recipe.name %>
-<p>Description: <%= @recipe.description %>
-<p>Serves: <%= @recipe.serves %>
-<p>PREP: <%= @recipe.prep %>
-<p>Cook: <%= @recipe.cook %>
-<p>Ingredients: <%= @recipe.ingredients %>
-<p>Instruction: <%= @recipe.instruction %>
+<p>Name: <%= @recipe.name %></p>
+<p>Description: <%= @recipe.description %></p>
+<p>Serves: <%= @recipe.serves %></p>
+<p>PREP: <%= @recipe.prep %></p>
+<p>Cook: <%= @recipe.cook %></p>
+<textarea name="textarea" rows="10" cols="50">Ingredients: <%= @recipe.ingredients %></textarea>
+<p>Instruction: <%= @recipe.instruction %></p>
 
 </br>
 
@@ -40,7 +40,7 @@
 <p> <i class="fas fa-thumbs-up"></i></i></i><%= review.rating%></p>
 <p>Comment:<%= link_to review.comment, review_path(review.id)%></p>
 
-<%= link_to 'Add a review', new_review_path %>
+<%= link_to 'Add a review', review_path %>
 
 
 <% end %>
