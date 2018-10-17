@@ -24,6 +24,35 @@ end
 
   def show
     @recipe = Recipe.find params[:id]
+    if @current_user.favlists.present?
+      @list = @current_user.favlists.first
+    else
+      @list = Favlist.new
+      @list.name = "My favourite list"
+      @list.user_id = @current_user.id
+    end
+  end
+
+  def favourite
+    recipe = Recipe.find params[:id]
+    # the current user doesn't have favourite list, create a list first
+    list = @current_user.favlists.first
+    # list = @current_user.favlists.first
+    # unless list.recipes.include? recipe
+    list.recipes << recipe
+    list.save
+    # end
+    # raise "hell"
+    redirect_to recipe_path(recipe)
+  end
+
+  def unfavourite
+    recipe = Recipe.find params[:id]
+    list = @current_user.favlists.first
+    list.recipes.delete(recipe)
+    list.save
+    # raise "hell"
+    redirect_to recipe_path(recipe)
   end
 
   def edit

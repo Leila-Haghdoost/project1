@@ -7,7 +7,6 @@
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
-
     <%= javascript_include_tag 'application' %>
     <%= cloudinary_js_config %>
 
@@ -19,15 +18,18 @@
       <%= link_to 'Home', cuisines_path %>
       |
       <% if @current_user.present? %>
-      
+
       <%= link_to 'Create New Cuisine', new_cuisine_path %>
       |
       <%= link_to 'Create New Recipe', new_recipe_path %>
       |
-        Welcome, <%= @current_user.name %>
-        |
+      Welcome, <%= @current_user.name %>
+      |
+      <% if @current_user.favlists.present? %>
         <%= link_to 'Your Favourite List', favlist_path(@current_user.favlists.first.id) %>
+      <% end %>
         |
+
         <%= link_to 'Logout', login_path, method: 'delete' %>
 
         |
@@ -37,6 +39,7 @@
         |
         <%= link_to 'Sign up', new_user_path %>
       <% end %>
+
     </nav>
 
 

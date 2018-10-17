@@ -9,7 +9,7 @@ class ReviewsController < ApplicationController
     @review = Review.create review_params
     # redirect_to( cuisine_path(@recipe.cuisine) )
 
-    redirect_to reviews_path
+    redirect_to recipe_path
   end
 
   def index

@@ -4,10 +4,18 @@
 <br>
 <p><%= @recipe.description %></p>
 
-<%=cl_image_tag  @recipe.image, alt: @recipe.name, class: 'eachrecipeimge'%>
+<%=cl_image_tag  @recipe.image, size:"120x120", alt: @recipe.name, class: 'eachrecipeimge'%>
 
 </br>
-<%= link_to 'Edit This Recipe', edit_recipe_path(@recipe) %>
+
+  <% if @list.recipes.include? @recipe%>
+    <%= link_to 'Remove from your Favourite list', unfavourite_recipe_path(@recipe.id) %>
+  <% else %>
+    <%= link_to 'Add to your Favourite list', favourite_recipe_path(@recipe.id) %>
+  <% end %>
+
+|
+<%= link_to 'Edit This Recipe', edit_recipe_path(@recipe), id: "#{@recipe.id}" %>
 |
 <%= link_to 'Delete This Recipe', recipe_path(@recipe), method: 'delete'%>
 
@@ -32,7 +40,7 @@
 <p> <i class="fas fa-thumbs-up"></i></i></i><%= review.rating%></p>
 <p>Comment:<%= link_to review.comment, review_path(review.id)%></p>
 
-<%= link_to 'Add a comment', new_review_path %>
+<%= link_to 'Add a review', new_review_path %>
 
 
 <% end %>
