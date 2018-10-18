@@ -1,24 +1,20 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# World Cuisines Website
+This website is for finding different cuisines and recipe.
+Everyone can be a user of this website by signing up the account.
+User can also create their cuisine or recipe  and share whit other users.
+User can store any recipes in their favorite list.
+User have only access to edit or delete their own recipes not others recipes.
+User can leave a review on any recipes.
 
-Things you may want to cover:
+### Live Demo
+You can play my World Cuisines website here:
+https://world-cuisine.herokuapp.com/
 
-* Ruby version
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Built With
+* Ruby on rails
+* Bootstrap
+* HTML
+* CSS
