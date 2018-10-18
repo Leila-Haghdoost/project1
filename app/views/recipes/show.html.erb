@@ -1,70 +1,94 @@
+<div class="forEachRecipeContainer">
 
-<h2><%= @recipe.name %></h2>
+    <div class="recipe-item-img">
+    <%=cl_image_tag  @recipe.image, size:"380x380", alt: @recipe.name, class: 'eachrecipeimge'%>
 
-<br>
-<p><%= @recipe.description %></p>
+    </div>
 
-<%=cl_image_tag  @recipe.image, size:"300x300", alt: @recipe.name, class: 'eachrecipeimge'%>
 
-</br>
+    <div class="recipeInfoMid">
+    <h4><%= @recipe.name %></h4>
+    <p><%= @recipe.description %></p>
+    <hr class="hrStyle">
+    <p><strong>Serves:</strong> <%= @recipe.serves %></p>
+    <hr class="hrStyle">
+    <p><strong>PREP: </strong><%= @recipe.prep %></p>
+      <hr class="hrStyle">
+    <p><strong>Cook:</strong> <%= @recipe.cook %></p>
 
-<% if @current_user.present? %>
-   <%# Only show the following links if the user is logged in %>
-  <% if @current_user.favourites.include? @recipe %>
-    <%= link_to 'Remove from your Favourite list', unfavourite_recipe_path(@recipe.id) %>
-  <% else %>
-    <%= link_to 'Add to your Favourite list', favourite_recipe_path(@recipe.id) %>
+    <% if @current_user.present? %>
+     <%# Only show the following links if the user is logged in %>
+    <% if @current_user.favourites.include? @recipe %>
+      <%= link_to 'Remove from your Favourite list', unfavourite_recipe_path(@recipe.id) %>
+    <% else %>
+      <%= link_to 'Add to your Favourite list', favourite_recipe_path(@recipe.id) %>
+    <% end %>
+    |
+    <% if @current_user == @recipe.user %>
+         <%= link_to 'Edit', edit_recipe_path(@recipe) %>
+         |
+         <%= link_to 'Delete', recipe_path(@recipe),
+                 method: 'delete',
+                 data: { confirm: 'Are you sure?' } %>
+       <% end %>
+    <% end %>
+    </div>
+
+
+
+
+
+
+  <div class="recipe-item-box" >
+  <strong>Ingredients:</strong> <%= simple_format @recipe.ingredients , class:"ingredientInfo" %>
+  </div>
+
+  <div class="recipeInfoMid">
+  <p><strong>Instruction:</strong>
+    <br>
+     <%= @recipe.instruction %></p>
+  </div>
+
+
+
+
+  <div class="recipe-item-box">
+    <h5 class="reviewTitle"><%= link_to 'Add a review', new_review_path %></h5>
+  <%= form_tag reviews_path do%>
+
+      <span>
+      <%= label_tag :rating %>
+      <br>
+      <%= text_field_tag :rating %>
+    </span>
+      <br>
+      <br>
+      <span>
+      <%= label_tag :comment %>
+      <br>
+      <%= text_area_tag :comment  %>
+    </span>
+    <br>
+    <%= hidden_field_tag :recipe_id, "#{@recipe.id}" %>
+
+    <%= submit_tag 'Submit', class: "btn btn-info" %>
   <% end %>
-  |
-  <% if @current_user == @recipe.user %>
-       <%= link_to 'Edit', edit_recipe_path(@recipe) %>
-       |
-       <%= link_to 'Delete', recipe_path(@recipe),
-               method: 'delete',
-               data: { confirm: 'Are you sure?' } %>
-  <% end %>
 
-
-<% end %>
+  </div>
 
 
 
+    <div class="recipeInfoMid">
 
-<p>Name: <%= @recipe.name %></p>
-<p>Description: <%= @recipe.description %></p>
-<p>Serves: <%= @recipe.serves %></p>
-<p>PREP: <%= @recipe.prep %></p>
-<p>Cook: <%= @recipe.cook %></p>
-<textarea name="textarea" rows="10" cols="50">Ingredients: <%= @recipe.ingredients %></textarea>
-<p>Instruction: <%= @recipe.instruction %></p>
+    <% @recipe.reviews.each do |review| %>
 
-</br>
+    <p><i class="fas fa-thumbs-up"></i></i></i><%= review.rating%></p>
+    <p><i class="far fa-comment-dots"></i> <%= link_to review.comment, review_path(review.id)%></p>
 
+    <hr class="hrStyle">
 
-<h4>Reviews:</h4>
-
-<% @recipe.reviews.each do |review| %>
-
-<p> <i class="fas fa-thumbs-up"></i></i></i><%= review.rating%></p>
-<p>Comment:<%= link_to review.comment, review_path(review.id)%></p>
-
-<%= link_to 'Add a review', new_review_path %>
+    <% end %>
+    </div>
 
 
-<% end %>
-
-
-<%= form_tag reviews_path do%>
-
-  <fieldset>
-    <%= label_tag :rating %>
-    <%= text_field_tag :rating%>
-  </fieldset>
-  <fieldset>
-    <%= label_tag :comment %>
-    <%= text_area_tag :comment %>
-  </fieldset>
-  <%= hidden_field_tag :recipe_id, "#{@recipe.id}" %>
-
-  <%= submit_tag %>
-<% end %>
+</div>

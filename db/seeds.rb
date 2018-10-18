@@ -307,9 +307,9 @@ review3 = Review.create rating:'5', comment:'I have made a lot of butter creams,
 
 
 
-u1.recipes << r1 << r2 << r8
-u2.recipes << r3 << r4 << r5
-u3.recipes << r6 << r7 << r9  << r10 << r11
+u1.recipes << r1 << r2 << r8 << r12 << r13 << r14
+u2.recipes << r3 << r4 << r5 << r15 << r16 << r17 << r24 << r25 << r26
+u3.recipes << r6 << r7 << r9  << r10 << r11 << r18 << r19 << r20  << r21 << r22 << r23
 #
 # u1.favlists << f1
 # u2.favlists << f2

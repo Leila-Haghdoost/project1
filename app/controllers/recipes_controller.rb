@@ -106,7 +106,7 @@ end
   @recipe = Recipe.find params[:id]
   # @recipe = Review.find params[:id]
   @recipe.destroy
-  redirect_to (recipes_path)
+  redirect_to( cuisine_path(@recipe.cuisine) )
   end
 
 

@@ -26,38 +26,56 @@
   size: 36px;
 }
 body {
-  background: #204b5e;
+  background: #f2f2f2;
   font-family: 'raileway', sans-serif;
 
   // justify-content: center;
 }
 .name{
-  padding:50px;
+  padding-top:40px;
+  padding-bottom:0px;
   font-family: 'Cabin Sketch', cursive;
-  font-size: 50pt;
-  color: rgb(163, 215, 51);
+  font-size: 60pt;
+  color: #008080;
 }
-
+.welcome{
+// padding:0px 5px;
+margin: 0px 20px;
+display:flex;
+  // text-align: center;
+  // align-items: center;
+  // justify-items:center;
+  color: #009999;
+}
 ul.topnav {
     list-style-type: none;
     margin-bottom: 30px;
     padding: 0;
     overflow: hidden;
-    background-color: #fff;
+    background-color: #b3cccc;
     opacity:0.8;
+    text-align: center;
+    align-items: center;
+    justify-items:center;
+
 }
 
-ul.topnav li {float: left;}
+ul.topnav li {
+  // float: left;
+
+  display:inline;
+}
 
 ul.topnav li a {
-    display: block;
-    color: #204b5e;
+    display: inline-block;
+    color: #004d4d;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+
 }
 
-ul.topnav li a:hover:not(.active) {background-color: #2A95B8;}
+ul.topnav li a:hover:not(.active) {background-color: #00e6e6;}
 
 ul.topnav li a.active {background-color: yellow;}
 

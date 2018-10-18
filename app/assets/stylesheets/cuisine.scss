@@ -1,7 +1,7 @@
 // index page
 
 body {
-  background: #204b5e;
+  // background: yellow;
   font-family: 'Kanit', sans-serif;
 }
 
@@ -43,6 +43,16 @@ a:visited {
 }
 
 
+
+
+
+
+
+
+
+
+
+
 // show page
 
 .cuisineContainer {
@@ -56,51 +66,56 @@ a:visited {
   margin-left:auto;
   margin-right: auto;
   background-color: #204b5e;
-
 }
+
+
 .grid-cuisineItem {
   background: #ffffff;
   // padding: 20px;
   margin :0px 100px;
   height: 51vh;
-
 }
+
+
 #gridCuisineItem{
   padding: 20px;
   width: 700px;
 background-color:#ffffff;
-opacity:0.9;
+// opacity:0.9;
 // margin: 0px 100px;
 }
 
-// .cuisineImage {
-//   height: 51vh;
-//   // background-color:green;
-//
-// }
 
 .image{
   height: 51vh;
-  // margin: 0px 100px;
 }
 
 .recipeDetails {
   margin: 0;
 }
 
+div.col-title {
+  // margin-right: 0.2px;
+  text-align: left;
+  // padding: 1px;
+  margin-top: 10px;
+  font-size: 15pt;
+}
+
 div.col-details {
   // margin-right: 0.2px;
   text-align: left;
-  padding: 1px;
+  // padding: 1px;
+  line-height: 1.1;
 }
 
-.editText a {
-  color: rgb(163, 215, 51);
+.editText a:visited, a:link {
+  color: #00cccc;
 }
 //////////////////////////////////////
 .recipesText{
-  color:white;
-  background-color:#204b5e;
+  color:#009999;
+  // background-color:#204b5e;
   width: 79vw;
   margin:3vw auto;
   margin-bottom:1vw;
@@ -110,22 +125,17 @@ div.col-details {
 
 
 .row {
-  margin-bottom:2vw;
+  margin-bottom:1vw;
   // border: 1px solid black;
   background-color:white;
-
-  // padding: 5px;
+  margin-right: 0px;
+  margin-left: 0px;
 }
 .col{
-  color:red;
+  color:#666666;
 }
 
-#recipesName {
-  margin-top: 1px;
-  padding: 10px;
-  color:red;
 
-}
 .col .col-2 {
  justify-self: start;
 }
@@ -143,4 +153,35 @@ div.col-details {
 .col-10 {
   padding-top: 10px;
   padding-left: 2px!important;
+}
+
+
+// h6{
+//   color:black;
+//   background-color:yellow;
+// }
+
+
+// Create cuisine form
+
+
+.newCuisine{
+    display: flex;
+    flex-flow: column;
+    text-align:center;
+    color:#009999;
+}
+
+
+.cuisinelogin{
+  max-width: 500px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+   justify-content: center;
+  width: 400px;
+  height: 300px;
+  background: #ffffff;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
 }

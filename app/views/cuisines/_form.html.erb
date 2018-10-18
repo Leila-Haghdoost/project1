@@ -1,13 +1,19 @@
+
+<div class="cuisinelogin" >
 <%= form_for @cuisine,html: {multipart: true} do |f| %>
 
-<fieldset>
+<span>
   <%= f.label :name %>
-  <%= f.text_field :name %>
-</fieldset>
-<fieldset>
+    <br>
+  <%= f.text_field :name, class:"form-control" %>
+</span>
+<span>
   <%= f.label :image %>
-  <%= f.cl_image_upload :image %>
-</fieldset>
-
-<%= f.submit %>
+  <br>
+  <%= f.cl_image_upload :image, class: "btn btn-outline-info" %>
+</span>
+<br>
+<br>
+<%= f.submit 'Submit', class: "btn btn-outline-info" %>
 <% end %>
+</div>

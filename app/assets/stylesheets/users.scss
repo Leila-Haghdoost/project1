@@ -2,7 +2,7 @@
     display: flex;
     flex-flow: column;
     text-align:center;
-    color:#ffffff;
+    color:#009999;
 }
 
 
@@ -17,4 +17,65 @@
   height: 400px;
   background: #ffffff;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+
+
+
+// user favourites list
+.favourites{
+  color:#009999;
+  // background-color:#204b5e;
+  width: 79vw;
+  margin:3vw auto;
+  margin-bottom:1vw;
+
+
+}
+div.col-title {
+  // margin-right: 0.2px;
+  text-align: left;
+  padding: 3px;
+  margin-top: 20px;
+  font-size: 15pt;
+}
+
+div.col-details {
+  // margin-right: 0.2px;
+  text-align: left;
+  padding: 3px;
+}
+
+.editText a {
+  color: rgb(163, 215, 51);
+}
+
+.row {
+  margin-bottom:1vw;
+  // border: 1px solid black;
+  background-color:white;
+
+}
+.col{
+  color:#666666;
+}
+
+
+.col .col-2 {
+ justify-self: start;
+}
+
+.recipeDisplay {
+  width: 77vw;
+  margin: 0 auto;
+}
+
+.col-2 {
+  padding: 0!important;
+  // background-color:yellow;
+}
+
+.col-10 {
+  padding-top: 10px;
+  padding-left: 2px!important;
 }

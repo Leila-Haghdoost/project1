@@ -16,6 +16,10 @@
 
   <body>
 <h1 class="name">WORLD CUISINES</h1>
+      <% if @current_user.present? %>
+     <div class="welcome">Welcome, <%= @current_user.name %></div>
+     <% end %>
+     <br>
     <ul class="topnav">
       <li><%= link_to 'Home', cuisines_path %></li>
       <!-- | -->
@@ -25,7 +29,7 @@
       <!-- | -->
       <li><%= link_to 'Create New Recipe', new_recipe_path %></li>
       <!-- | -->
-      <li>Welcome, <%= @current_user.name %></li>
+
       <!-- | -->
       <li><%= link_to 'Your Favourite List', user_path(@current_user.id) %></li>
       <!-- | -->

@@ -1,39 +1,51 @@
+
+
+<div class="recipeCreation" >
 <%= form_for @recipe, html: {multipart: true} do |f| %>
-<fieldset>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-</fieldset>
-<fieldset>
-  <%= f.label :description %>
-  <%= f.text_field :description %>
-</fieldset>
-<fieldset>
-  <%= f.label :serves %>
-  <%= f.text_field :serves %>
-</fieldset>
-<fieldset>
-  <%= f.label :prep %>
-  <%= f.text_field :prep %>
-</fieldset>
-<fieldset>
-  <%= f.label :cook %>
-  <%= f.text_field :cook %>
-</fieldset>
-<fieldset>
-  <%= f.label :ingredients %>
-  <%= f.text_field :ingredients %>
-</fieldset>
-<fieldset>
-  <%= f.label :instruction %>
-  <%= f.text_field :instruction %>
-</fieldset>
-<fieldset>
-  <%= f.label :image %>
+<div>
+  Name: <%= f.text_field :name, class:"form-control" %>
+</div>
+<br>
+<div>
+  Description:
+
+  <%= f.text_field :description, class:"form-control" %>
+</div>
+<br>
+<div>
+Serves:
+    <br>
+  <%= f.text_field :serves, class:"form-control" %>
+</div><br>
+<div>
+Prep:
+    <br>
+  <%= f.text_field :prep, class:"form-control" %>
+</div><br>
+<div>
+Cook:
+    <br>
+  <%= f.text_field :cook, class:"form-control" %>
+</div><br>
+<div>
+  Ingredients:
+    <br>
+  <%= f.text_field :ingredients, class:"form-control" %>
+</div><br>
+<div>
+Instruction:
+    <br>
+  <%= f.text_field :instruction, class:"form-control" %>
+</div><br>
+<div>
+Image:
+    <br>
   <%= f.cl_image_upload :image %>
-</fieldset>
-<fieldset>
-  <%= f.label :cuisine_id, 'Cuisine' %>
+</div><br>
+<div>
+  <%= f.label :cuisine_id, 'Cuisine:' %>
   <%= f.collection_select :cuisine_id, Cuisine.all, :id, :name, prompt: 'Please choose the cuisine'  %>
-</fieldset>
-<%= f.submit %>
+  </div>
+<%= f.submit 'Submit', class: "btn btn-outline-info" %>
 <% end %>
+</div>

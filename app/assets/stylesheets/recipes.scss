@@ -1,0 +1,66 @@
+.forEachRecipeContainer{
+display: grid;
+// padding: 20px;
+// background: #fff;
+grid-template-columns: 400px 400px 400px;
+grid-template-rows: 400px 400px;
+grid-column-gap: 20px;
+grid-row-gap: 20px;
+// align-items: center;
+// justify-items:center;
+justify-content:center;
+}
+
+
+
+.recipe-item-box{
+  background: #6cc5c7;
+  padding: 30px;
+
+}
+.recipeInfoMid{
+
+background: #fff;
+padding: 30px;
+
+}
+
+.ingredientInfo{
+  font-size:11pt;
+}
+
+.recipe-item-img{
+border: 1px dashed #a6a6a6;
+padding: 10px
+}
+.hrStyle{
+background-color: #fff;
+ border-top: 1px dashed #8c8b8b;
+}
+.reviewTitle{
+  font-color:black;
+}
+
+
+
+// Create new recipe
+
+.newRecipe{
+    display: flex;
+    flex-flow: column;
+    text-align:center;
+    color:#009999;
+}
+
+.recipeCreation{
+  max-width: 500px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+   justify-content: center;
+  width: 70vW;
+  height: 55vW;
+  background: #ffffff;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+}
