@@ -25,6 +25,7 @@ end
   end
 
   def show
+
     @recipe = Recipe.find params[:id]
     # if @current_user.present?
     #   # only handle lists if user is logged in

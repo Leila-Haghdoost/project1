@@ -6,25 +6,20 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    @review = Review.new (review_params)
+    @review = Review.create({:rating => params[:rating], :comment => params[:comment]})
 
-
-    @review.user = @current_user
-    @review.save
-
-    if @review.persisted?
-      recipe = Recipe.find params[:review][:recipe_id].to_i
 
 
     # raise "hell"
-    redirect_to( recipe_path(@review.recipe) )
-  else
+    if @review.persisted?
+      @review.user_id = @current_user.id
+      @review.recipe_id = params[:recipe_id]
+      @review.save
+      # raise "hell"
+      redirect_to( recipe_path(@review.recipe) )
+    else
     render :new
-  end
-
-
-
-
+    end
   end
 
   def index

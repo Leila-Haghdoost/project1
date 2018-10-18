@@ -1,12 +1,12 @@
-
+// index page
 
 body {
   background: #204b5e;
   font-family: 'Kanit', sans-serif;
 }
 
-.container {
 
+.container {
   display: grid;
   padding: 20px;
   /* background: yellow; */
@@ -18,21 +18,16 @@ body {
   align-items: center;
   justify-items:center;
   justify-content:center;
-
-
-
 }
 .grid-item {
   background: #ffffff;
   padding: 20px;
-
 }
 
 .name {
   color: white;
   text-align: center;
 }
-
 
 .cuisinImg {
   width: 270px;
@@ -42,9 +37,110 @@ body {
 
 a:link {
   color: #666666;
-
 }
 a:visited {
   color: #666666;
+}
 
+
+// show page
+
+.cuisineContainer {
+  display: grid;
+  grid-template-columns: 300px 600px  ;
+  grid-column-gap: 120px;
+  grid-row-gap: 30px;
+  width: 70vw;
+  height: 50vh;
+  justify-items:center;
+  margin-left:auto;
+  margin-right: auto;
+  background-color: #204b5e;
+
+}
+.grid-cuisineItem {
+  background: #ffffff;
+  // padding: 20px;
+  margin :0px 100px;
+  height: 51vh;
+
+}
+#gridCuisineItem{
+  padding: 20px;
+  width: 700px;
+background-color:#ffffff;
+opacity:0.9;
+// margin: 0px 100px;
+}
+
+// .cuisineImage {
+//   height: 51vh;
+//   // background-color:green;
+//
+// }
+
+.image{
+  height: 51vh;
+  // margin: 0px 100px;
+}
+
+.recipeDetails {
+  margin: 0;
+}
+
+div.col-details {
+  // margin-right: 0.2px;
+  text-align: left;
+  padding: 1px;
+}
+
+.editText a {
+  color: rgb(163, 215, 51);
+}
+//////////////////////////////////////
+.recipesText{
+  color:white;
+  background-color:#204b5e;
+  width: 79vw;
+  margin:3vw auto;
+  margin-bottom:1vw;
+
+
+}
+
+
+.row {
+  margin-bottom:2vw;
+  // border: 1px solid black;
+  background-color:white;
+
+  // padding: 5px;
+}
+.col{
+  color:red;
+}
+
+#recipesName {
+  margin-top: 1px;
+  padding: 10px;
+  color:red;
+
+}
+.col .col-2 {
+ justify-self: start;
+}
+
+.recipeDisplay {
+  width: 77vw;
+  margin: 0 auto;
+}
+
+.col-2 {
+  padding: 0!important;
+  // background-color:yellow;
+}
+
+.col-10 {
+  padding-top: 10px;
+  padding-left: 2px!important;
 }

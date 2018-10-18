@@ -1,20 +1,61 @@
-<div class="cuisineShowPage">
 
-<%= cl_image_tag @cuisine.image, alt: @cuisine.name, class: 'cuisine' %>
-<h2 ><%= @cuisine.name %> recipes</h2>
+<!-- Cuisine part -->
 
-<br>
-<%= link_to 'Edit This Cuisine', edit_cuisine_path(@cuisine) %>
-|
-<%= link_to 'Delete This Cuisine', cuisine_path(@cuisine), method: 'delete'%>
+<div class="cuisineContainer">
+  <div class="grid-cuisineItem">
+    <div class="cuisineImage">
+    <%= cl_image_tag @cuisine.image, class:"image",  alt: @cuisine.name  %>
+    </div>
+  </div>
+
+  <div class="grid-cuisineItem" id="gridCuisineItem">
+      <h2 ><%= @cuisine.name %> recipes</h2>
+    <%= "Pea horseradish azuki bean lettuce avocado asparagus okra. Kohlrabi radish okra azuki bean corn fava bean mustard tigernut jícama green bean celtuce collard greens avocado quandong fennel gumbo black-eyed pea. Grape silver beet watercress potato tigernut corn groundnut. Chickweed okra pea winter purslane coriander yarrow sweet pepper radish garlic brussels sprout groundnut summer purslane earthnut pea tomato spring onion azuki bean gourd. Gumbo kakadu plum komatsuna black-eyed pea green bean zucchini gourd winter purslane silver beet rock melon radish asparagus spinach.
+
+    Beetroot water spinach okra water chestnut ricebean pea catsear courgette summer purslane. Water spinach arugula pea tatsoi aubergine spring onion bush tomato kale radicchio turnip chicory salsify pea sprouts fava bean. Dandelion zucchini burdock yarrow chickpea dandelion sorrel courgette turnip greens tigernut soybean radish artichoke wattle seed endive groundnut broccoli arugula."%>
+    <p class="editText">
+     <%= link_to 'Edit This Cuisine', edit_cuisine_path(@cuisine) %>
+     |
+     <%= link_to 'Delete This Cuisine', cuisine_path(@cuisine), method: 'delete'%>
+   </p>
+  </div>
+
 </div>
-<br>
+
+
+
+
+
+
+<!-- Recipe part -->
+
+
+<div class="recipesText">
 <h4>Recipes:</h4>
+</div>
 
-<% @cuisine.recipes.each do |recipe| %>
-<%= cl_image_tag recipe.image, size:"100x100", class:"recipeGride"%>
+<div class="recipeDisplay">
+  <% @cuisine.recipes.each do |recipe| %>
+  <div class="row">
+      <div class="col col-2">
+        <%= cl_image_tag recipe.image, size:"140x140", class:"recipeGride"%>
+      </div>
+      <div class="col col-10">
+        <div class="row">
+          <div class="col col-details">
+            <%= link_to recipe.name, recipe_path(recipe.id), id: "recipesName"%>
+              <!-- <hr> -->
+          </div>
+        </div>
+        <div class="row">
+          <div class="col col-details">
+            <%= recipe.description%>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
 
-<%= link_to recipe.name, recipe_path(recipe.id)%>
-<br>
 
-<% end %>
+</div>

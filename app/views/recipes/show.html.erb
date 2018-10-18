@@ -54,17 +54,17 @@
 <% end %>
 
 
-<%= form_for @review do |f| %>
+<%= form_tag reviews_path do%>
 
-<fieldset>
-  <%= f.label :rating %>
-  <%= f.text_field :rating,  value: @recipe.name %>
-</fieldset>
-<fieldset>
-  <%= f.label :comment %>
-  <%= f.text_field :comment %>
-</fieldset>
-<%= f.hidden_field :recipe_id, value:"#{@recipe.id}" %>
+  <fieldset>
+    <%= label_tag :rating %>
+    <%= text_field_tag :rating%>
+  </fieldset>
+  <fieldset>
+    <%= label_tag :comment %>
+    <%= text_area_tag :comment %>
+  </fieldset>
+  <%= hidden_field_tag :recipe_id, "#{@recipe.id}" %>
 
-<%= f.submit %>
+  <%= submit_tag %>
 <% end %>
